@@ -17,7 +17,7 @@ def quadrate_quadratwurzeln(x, p):
         print("\nDie eingegebene Zahl ist ein Quadrat.")
 
         if((p+1)%4 == 0):
-            print("\n4 | p+1:")
+            print("\n4 | p+1: ")
             w1 = pow(x, int((p+1)/4), p)
             w2 = p - w1
 
@@ -25,7 +25,7 @@ def quadrate_quadratwurzeln(x, p):
             return 1
 
         elif((p-1)%4 == 0):
-            print("\n4| p-1: ") 
+            print("\n4 | p-1: ") 
             # 2^l *t
             temp_pow = len(format(int((p-1)/2), 'b'))-1
             temp_gcd = pow(2, temp_pow)
