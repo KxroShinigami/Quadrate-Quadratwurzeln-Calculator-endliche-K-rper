@@ -9,6 +9,7 @@ import math # für den gcd / ggT
 import pyfiglet
 
 ascii_banner = pyfiglet.figlet_format("Easy Peasy Lemon's Squeezy")
+print(ascii_banner)
 
 def quadrate_quadratwurzeln(x, p):
     Quadrat_teiler = int((p-1)/2)
@@ -27,11 +28,13 @@ def quadrate_quadratwurzeln(x, p):
         elif((p-1)%4 == 0):
             print("\n4 | p-1: ") 
             # 2^l *t
-            temp_pow = len(format(int((p-1)/2), 'b'))-1
-            temp_gcd = pow(2, temp_pow)
-            l_temp = math.gcd(int((p-1)/2), temp_gcd) # l_temp = 2^l
+            pow_temp = len(format(int((p-1)/2), 'b'))-1
+            gcd_temp = pow(2, pow_temp)
+            l_temp = math.gcd(int((p-1)/2), gcd_temp) # l_temp = 2^l
             l = len(format(l_temp, 'b'))-1 # aus 2^l muss die Position des most-significant-bit (Bit am weitesten links) geholt werden für das l
             t = int(((p-1)/2)/l_temp) # (p-1)/2 durch 2^l teilen, damit t raus kommt.
+
+            print("2^l: ", l_temp, "l: ", l, " , t: ", t)
 
             try: # b
                 print("\nPlease enter a valid Integer: ")
@@ -44,6 +47,7 @@ def quadrate_quadratwurzeln(x, p):
                     return 0
             
             n = 0
+            print("\nn 0 : ", n)
             
             for i in range(l):
                 c = (pow(x, pow(2, l-(i+1), p) * t, p) * pow(b, n, p))%p
@@ -55,7 +59,7 @@ def quadrate_quadratwurzeln(x, p):
                 else: 
                     n = int(n/2 + (p-1)/4)
                 
-                print("\nn", i, ": ", n)
+                print("\nn", i+1, ": ", n)
             
             a = (pow(x, int((t+1)/2), p) * pow(b, n, p))%p
 
@@ -66,6 +70,7 @@ def quadrate_quadratwurzeln(x, p):
 
         else:
             print("\n\nSomething is wrong...i can feel it...")
+            print("Die Zahl ist durch 2 teilbar und somit keine Primzahl")
             return 0
     else:
         print("\nDie eingegebene Zahl ist kein Quadrat.")
